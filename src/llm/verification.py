@@ -600,17 +600,12 @@ if __name__ == "__main__":
         use_mock=True,
     )
 
-    print(f"\nProgrammatic Verification:")
-    print(f"  Claims checked: {result['programmatic']['total_claims']}")
-    print(f"  Verified: {result['programmatic']['verified']}")
-    print(f"  Hallucinated: {result['programmatic']['hallucinated']}")
-    print(f"  Uncertain: {result['programmatic']['uncertain']}")
-    print(f"  Score: {result['programmatic']['score']:.2%}")
-
     if result['llm_judge']:
         print(f"\nLLM Judge Verification:")
         print(f"  Verdict: {result['llm_judge']['verdict']}")
-        print(f"  Confidence: {result['llm_judge']['confidence']}")
+        print(f"  Confidence: {result['llm_judge'].get('confidence', 'N/A')}")
+        print(f"  Verified: {result['llm_judge'].get('verified', 0)}")
+        print(f"  Hallucinations: {result['llm_judge'].get('hallucinations', 0)}")
 
     print(f"\nOVERALL VERDICT: {result['overall_verdict']}")
     print(f"CONFIDENCE: {result['confidence']}")

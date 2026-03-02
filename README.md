@@ -68,7 +68,7 @@ python run_investigator.py --n-briefs 5 --use-llm
 **Key files:**
 - `src/features/engineering.py` - 64 behavioral features
 - `src/features/graph_features.py` - GFP network features
-- `src/models/train.py` - LightGBM + SMOTE + class weights
+- `src/models/train.py` - LightGBM model training
 
 ## Part 2: AI-Powered Investigation Assistant
 
