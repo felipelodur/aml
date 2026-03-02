@@ -1,0 +1,41 @@
++--------------------------------------------------------------------+
+| VERIFICATION: NOT_VERIFIED    Confidence: N/A                   |
++--------------------------------------------------------------------+
+
+```
+EXECUTIVE SUMMARY:
+ACH transfer of $12,421.63 from Bank 27 to Bank 41335 flagged with risk score 0.9902 (Top 5% high risk). Transaction exhibits fan-out distribution pattern with concentrated recipient behavior and potential velocity concerns.
+
+TYPOLOGY ASSESSMENT:
+- Most likely represents a Fan-Out typology.
+- Phase: Placement/Integration
+- Confidence: MEDIUM (71% from classifier)
+- Reasoning: Sender has 16 unique receivers indicating fund distribution, while receiver has only 2 unique senders showing concentration.
+
+RISK INDICATORS:
+- payment_ACH: ACH method (↑ INCREASES RISK)
+- receiver_concentration: 0.667 (↑ INCREASES RISK) - High concentration of funds to this receiver
+- is_self_transfer: Not available in source data (↑ INCREASES RISK per SHAP)
+- sender_concentration: 0.516 (↑ INCREASES RISK) - Moderate concentration pattern
+- sender_gap_ratio: 0.00 (↑ INCREASES RISK) - No gap between transactions indicates rapid succession
+- receiver_time_since_last: Not available in source data (↑ INCREASES RISK per SHAP)
+- sender_unique_receivers: 16 (↑ INCREASES RISK) - High recipient diversity
+- amount_usd: $12,421.63 (↑ INCREASES RISK) - Above-average transaction size
+
+REGULATORY CONSIDERATIONS:
+- BSA/AML requirements: Fan-out pattern with high velocity warrants investigation per FinCEN guidance on layering schemes
+- SAR filing considerations: Risk score 0.9902 in top 5% may meet suspicious activity threshold under 31 CFR 1020.320
+
+RECOMMENDED ACTION:
+ESCALATE FOR SAR FILING
+Justification: Extremely high risk score (0.9902) combined with fan-out typology and velocity indicators warrant immediate escalation.
+
+SUGGESTED NEXT STEPS:
+- Review complete transaction history for sender's 16 unique receivers
+- Analyze receiver account for potential money mule indicators
+- Verify legitimate business relationship between parties
+
+ANALYST NOTES:
+- Limitations: Self-transfer status and receiver timing data not available in behavioral features
+- Human judgment needed: Determination of legitimate business purpose for fan-out distribution pattern
+```

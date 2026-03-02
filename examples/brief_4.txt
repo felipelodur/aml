@@ -1,0 +1,39 @@
++--------------------------------------------------------------------+
+| VERIFICATION: NOT_VERIFIED    Confidence: N/A                   |
++--------------------------------------------------------------------+
+
+EXECUTIVE SUMMARY:
+ACH transfer of $16,037.19 from Bank 27 to Bank 16866 flagged with risk score 0.9906 (Top 5%). Transaction exhibits fan-out distribution pattern with high concentration ratios and zero gap timing between transactions.
+
+TYPOLOGY ASSESSMENT:
+- Most likely represents a Fan-Out typology.
+- Phase: Placement/Integration
+- Confidence: MEDIUM (69% from ML classifier)
+- Reasoning: Sender has 16 unique receivers with moderate concentration (0.516), while receiver shows high concentration (0.750) from only 3 senders.
+
+RISK INDICATORS:
+- payment_ACH: ACH method (↑ INCREASES RISK) - Primary risk driver
+- receiver_concentration: 0.750 (↑ INCREASES RISK) - High fund concentration
+- sender_concentration: 0.516 (↑ INCREASES RISK) - Moderate distribution concentration
+- is_self_transfer: Not available in source data (↑ INCREASES RISK per SHAP)
+- sender_gap_ratio: 0.00 (↑ INCREASES RISK) - No time gap between transactions
+- sender_unique_receivers: 16 (↑ INCREASES RISK) - High recipient diversity
+- sender_daily_count: 6 (↑ INCREASES RISK) - Multiple same-day transactions
+- Cross-bank transfer increases tracing complexity
+
+REGULATORY CONSIDERATIONS:
+- BSA/AML requirements: Fan-out pattern warrants analysis under 31 CFR 1020.210 for suspicious activity
+- SAR filing considerations: High risk score (0.9906) and distribution pattern may meet SAR criteria under 31 CFR 1020.320
+
+RECOMMENDED ACTION:
+ESCALATE FOR SAR FILING
+Justification: Extremely high risk score (99th percentile) combined with fan-out typology and concentration indicators warrant immediate escalation.
+
+SUGGESTED NEXT STEPS:
+- Review complete sender transaction history for 30-day period
+- Analyze relationship between sender and 16 unique receivers
+- Verify legitimate business purpose for distribution pattern
+
+ANALYST NOTES:
+- Limitations: Self-transfer indicator unclear from behavioral features; entity relationship data not available
+- Human judgment needed: Determination of legitimate business distribution vs. layering scheme based on account holder due diligence

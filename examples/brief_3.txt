@@ -1,0 +1,39 @@
++--------------------------------------------------------------------+
+| VERIFICATION: NOT_VERIFIED    Confidence: N/A                   |
++--------------------------------------------------------------------+
+
+EXECUTIVE SUMMARY:
+ACH transfer of $18,406.44 from Bank 25400 to Bank 12 flagged with risk score 0.9917 (Top 5% high risk). Transaction exhibits layering patterns with high sender diversification and concentration indicators suggesting potential money laundering activity.
+
+TYPOLOGY ASSESSMENT:
+- Most likely represents a Gather-Scatter / Scatter-Gather typology.
+- Phase: Layering
+- Confidence: LOW (56% from ML classifier)
+- Reasoning: Sender has 15 unique receivers with 0.625 concentration ratio, indicating funds being distributed across multiple recipients in potential layering scheme.
+
+RISK INDICATORS:
+- payment_ACH: ACH method (↑ INCREASES RISK) - Contributes +5.64 to risk score
+- sender_concentration: 0.625 (↑ INCREASES RISK) - High concentration ratio indicates focused activity
+- is_self_transfer: Not available in source data (↑ INCREASES RISK) - Contributes +1.03 to risk score
+- gfp_receiver_out_degree: Not available in source data (↑ INCREASES RISK) - Receiver network connectivity
+- receiver_time_since_last: 0.0 hours (↑ INCREASES RISK) - Immediate follow-up activity
+- sender_gap_ratio: 0.00 (↑ INCREASES RISK) - No gaps between transactions
+- amount_usd: $18,406.44 (↑ INCREASES RISK) - Amount size contributes to risk
+- sender_unique_receivers: 15 (↑ INCREASES RISK) - High recipient diversification
+
+REGULATORY CONSIDERATIONS:
+- BSA/AML requirements: Transaction pattern indicates potential layering under 31 CFR 1020.320
+- SAR filing considerations: Risk score 0.9917 and layering indicators may warrant SAR filing for suspicious structuring
+
+RECOMMENDED ACTION:
+ESCALATE FOR SAR FILING
+Justification: Extremely high risk score (99.17%) with clear layering indicators including high sender diversification and concentration patterns.
+
+SUGGESTED NEXT STEPS:
+- Review complete sender transaction history for 90-day period
+- Analyze receiver network connections and transaction patterns  
+- Verify account holder identity and source of funds documentation
+
+ANALYST NOTES:
+- Limitations: Single transaction view; receiver network analysis incomplete; account holder information not provided
+- Human judgment needed: Determination of legitimate business purpose for high diversification pattern and evaluation of economic rationale for transaction amount

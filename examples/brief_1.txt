@@ -1,0 +1,39 @@
++--------------------------------------------------------------------+
+| VERIFICATION: NOT_VERIFIED    Confidence: N/A                   |
++--------------------------------------------------------------------+
+
+EXECUTIVE SUMMARY:
+ACH transfer of $13,155.94 (Euro→Euro) between Bank 1595 and Bank 14 flagged with risk score 0.9973 (top 5%). Transaction exhibits fan-out distribution pattern with high sender concentration and ACH payment method driving elevated risk.
+
+TYPOLOGY ASSESSMENT:
+- Most likely represents a Fan-Out typology.
+- Phase: Placement/Integration
+- Confidence: LOW (48% from ML classifier)
+- Reasoning: Sender has 15 unique receivers with high concentration (0.625) indicating potential fund distribution activity.
+
+RISK INDICATORS:
+- payment_ACH: ACH method (+5.72 SHAP contribution - ↑ INCREASES RISK)
+- sender_concentration: 0.625 (+2.10 SHAP contribution - ↑ INCREASES RISK)
+- gfp_receiver_out_degree: Not available in source data (+1.29 SHAP contribution - ↑ INCREASES RISK)
+- is_self_transfer: Not available in source data (+1.06 SHAP contribution - ↑ INCREASES RISK)
+- sender_unique_receivers: 15 (+0.74 SHAP contribution - ↑ INCREASES RISK)
+- amount_usd: $13,155.94 (+0.73 SHAP contribution - ↑ INCREASES RISK)
+- receiver_time_since_last: Not available in source data (+0.59 SHAP contribution - ↑ INCREASES RISK)
+- Cross-bank transfer (is_cross_bank: 1) increases complexity
+
+REGULATORY CONSIDERATIONS:
+- BSA/AML requirements: Pattern analysis required for fan-out transactions under FinCEN guidance
+- SAR filing considerations: Amount above $10K threshold with suspicious distribution pattern may warrant SAR filing per 31 CFR 1020.320
+
+RECOMMENDED ACTION:
+ESCALATE FOR SAR FILING
+Justification: Very high risk score (99.73rd percentile) with fan-out pattern and significant ACH risk contribution suggests potential money laundering activity.
+
+SUGGESTED NEXT STEPS:
+- Review complete transaction history for sender account over past 30 days
+- Analyze recipient accounts for common beneficial ownership or control
+- Verify business purpose and source of funds documentation
+
+ANALYST NOTES:
+- Limitations: Missing receiver network analysis data; self-transfer indicator value not provided
+- Human judgment needed: Determination of legitimate business purpose for high-concentration fan-out pattern

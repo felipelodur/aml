@@ -1,0 +1,39 @@
++--------------------------------------------------------------------+
+| VERIFICATION: NOT_VERIFIED    Confidence: N/A                   |
++--------------------------------------------------------------------+
+
+EXECUTIVE SUMMARY:
+ACH transfer of $14,709.16 from Bank 11 to Bank 1439 flagged with risk score 0.9957 (Top 5% High Risk). Transaction exhibits gather-scatter layering patterns with rapid-fire distribution characteristics.
+
+TYPOLOGY ASSESSMENT:
+- Most likely represents a Gather-Scatter / Scatter-Gather typology.
+- Phase: Layering
+- Confidence: LOW (59% from ML classifier)
+- Reasoning: Sender distributes to 11 unique receivers while receiver collects from 4 unique senders, indicating potential layering structure.
+
+RISK INDICATORS:
+- payment_ACH: ACH method (↑ INCREASES RISK)
+- sender_concentration: 0.204 (↑ INCREASES RISK) - Low concentration suggests fund distribution
+- sender_unique_receivers: 11 (↑ INCREASES RISK) - High recipient diversity
+- sender_gap_ratio: 0.00 (↑ INCREASES RISK) - Zero time gap indicates rapid transactions
+- sender_amount_zscore: 2.50 (↑ INCREASES RISK) - Amount significantly above sender's normal pattern
+- sender_time_since_last: 0.0 hours (↑ INCREASES RISK) - Immediate consecutive activity
+- sender_daily_count: 5 (↑ INCREASES RISK) - Multiple same-day transactions
+- receiver_unique_senders: 4 (↑ INCREASES RISK) - Receiver collects from multiple sources
+
+REGULATORY CONSIDERATIONS:
+- BSA/AML requirements: Layering activity potentially obscuring fund source under 31 CFR 1010.100(ff)
+- SAR filing considerations: Pattern meets complexity threshold for suspicious activity reporting
+
+RECOMMENDED ACTION:
+ESCALATE FOR SAR FILING
+Justification: High-risk score (99.57th percentile) combined with classic layering indicators warrants immediate SAR consideration.
+
+SUGGESTED NEXT STEPS:
+- Map complete transaction network for both accounts over 30-day period
+- Verify beneficial ownership of both entities
+- Cross-reference with previous SARs for similar patterns
+
+ANALYST NOTES:
+- Limitations: Single transaction snapshot; beneficial ownership data not available
+- Human judgment needed: Determination of legitimate business purpose vs. money laundering intent
