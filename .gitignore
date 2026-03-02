@@ -1,0 +1,53 @@
+# Data files (large, not versioned)
+data/raw/*.csv
+data/raw/*.txt
+data/processed/*.parquet
+data/processed/*.csv
+
+# Model artifacts
+outputs/models/*.joblib
+outputs/models/*.json
+
+# Generated outputs (reproducible)
+outputs/briefs/*
+outputs/reports/*
+!outputs/briefs/.gitkeep
+!outputs/reports/.gitkeep
+
+# Environment
+.env
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# HuggingFace cache
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+
+# Confidential docs
+docs/executive_brief.md
+docs/diagrams.md
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
