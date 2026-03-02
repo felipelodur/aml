@@ -52,9 +52,21 @@ python run_investigator.py --n-briefs 5 --use-llm
 **Model:** LightGBM + Graph Feature Preprocessor (GFP)
 
 **Performance:**
-- PR-AUC: 0.73 (42% lift at 5% FPR)
-- Recall at 5% FPR: 42%
-- Top 5% risk tier captures 1.2% fraud (60x baseline)
+
+| Band | FPR | Recall | Precision |
+|------|-----|--------|-----------|
+| Top 0.1% | 0.07% | 35.3% | 25.51% |
+| Top 0.5% | 0.46% | 60.7% | 8.78% |
+| Top 1% | 0.95% | 70.2% | 5.07% |
+| Top 2% | 1.95% | 75.6% | 2.73% |
+| Top 5% | 4.95% | 81.0% | 1.17% |
+| Top 10% | 9.94% | 89.7% | 0.65% |
+| Top 20% | 19.94% | 99.3% | 0.36% |
+| Top 50% | 49.96% | 100.0% | 0.14% |
+
+**Summary Metrics:**
+- pAUC @ 10% FPR: 0.79 (normalized)
+- ROC-AUC: 0.98
 
 **Features (70 total):**
 | Category | Examples | SHAP Contribution |
